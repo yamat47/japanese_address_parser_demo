@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JapaneseAddressParserDemo</title>
+    <title>デモンストレーション | JapaneseAddressParser</title>
+    <meta name="description" content="JapaneseAddressParserを試すことができるページです。">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:url" content="https://japanese-address-parser-demo.herokuapp.com/" >
+    <meta property="og:title" content="デモンストレーション | JapaneseAddressParser" >
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="JapaneseAddressParserを試すことができるページです。" >
+    <%= tag.meta property: 'og:image', content: asset_url('og-image.png') %>
+    <meta property="og:site_name" content="デモンストレーション | JapaneseAddressParser" >
+    <meta property="og:locale" content="ja_JP" >
+    <meta name="twitter:card" content="summary_large_image" >
+    <meta name="twitter:site" content="@yamat47" >
+    <meta name="twitter:creator" content="@yamat47" >
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application" %>
+    <%= favicon_link_tag %>
   </head>
 
   <body class='bg-slate-50'>
-    <h1 class='mt-14 md:mt-28 text-center text-2xl md:text-3xl'>JapaneseAddressParser</h1>
+    <h1 class='flex justify-center mt-14 md:mt-28 text-center text-2xl md:text-3xl'>
+      <%= image_tag('logo.png', class: 'h-8 mr-2') %>
+      JapaneseAddressParser
+    </h1>
     <main class="container mx-auto mt-14 mb-14 px-5 lg:px-32 xl:px-64 2xl:px-96">
       <%= yield %>
     </main>
