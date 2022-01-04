@@ -1,15 +1,38 @@
 <section>
+  <p class='mb-5'>
+    <%= link_to 'JapaneseAddressParser', 'https://github.com/yamat47/japanese_address_parser', class: 'underline', target: '_blank', rel: 'noopener' %>
+    は日本の住所をパースするための Ruby gem です。
+    <br>
+    このページではこの gem を使って住所を解析するデモをすることができます。
+  </p>
+  <p class='mb-5'>
+    このフォームで送信された値は一切保存をしていません。
+    <br>
+    Heroku を使って提供しているため Runtime Log は残ってしまいますが、アプリケーションのデバッグ以外の用途では一切使いません。
+  </p>
+  <p>
+    gem の利用方法は
+    <%= link_to 'README', 'https://github.com/yamat47/japanese_address_parser#readme', class: 'underline', target: '_blank', rel: 'noopener' %>
+    をご覧ください。
+    <br>
+    またこのページのソースコードは
+    <%= link_to 'こちら', 'https://github.com/yamat47/japanese_address_parser_demo', class: 'underline', target: '_blank', rel: 'noopener' %>
+    で公開しています。
+  </p>
+</section>
+
+<section class='mt-10'>
   <%= form_with url: root_path, method: :get do |form| %>
     <div class='flex'>
       <%= form.text_field :search, value: @search, class: 'grow py-2 border-2 border-slate-600 focus:ring-slate-500 focus:border-slate-500' %>
-      <%= form.submit value: '検索', name: nil, class: 'py-2 px-5 border-2 border-slate-600 hover:border-slate-500 bg-slate-600 text-white font-bold hover:bg-slate-500 hover:cursor-pointer focus-visible:outline-slate-500' %>
+      <%= form.submit value: '解析', name: nil, class: 'py-2 px-5 border-2 border-slate-600 hover:border-slate-500 bg-slate-600 text-white font-bold hover:bg-slate-500 hover:cursor-pointer focus-visible:outline-slate-500' %>
     </div>
   <% end %>
 </section>
 
 <% if @address.present? %>
   <section>
-    <h2 class='mt-5 py-5 text-center text-2xl font-semibold text-slate-900'>検索結果</h2>
+    <h2 class='mt-5 py-5 text-center text-2xl text-slate-900'>解析結果</h2>
     <section>
       <h3 class='py-2 pl-3 font-semibold'>都道府県</h3>
       <% if @address.prefecture.present? %>
