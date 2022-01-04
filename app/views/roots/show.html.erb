@@ -1,3 +1,8 @@
+<%= form_with url: root_path, method: :get do |form| %>
+  <%= form.text_field :search, value: @search %>
+  <%= form.submit name: nil %>
+<% end %>
+
 <% if @address.present? %>
-<%=  @address.furigana %>
+  <%= @address.furigana %>
 <% end %>
