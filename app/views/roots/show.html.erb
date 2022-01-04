@@ -1,8 +1,69 @@
 <%= form_with url: root_path, method: :get do |form| %>
   <%= form.text_field :search, value: @search %>
-  <%= form.submit name: nil %>
+  <%= form.submit value: '検索', name: nil %>
 <% end %>
 
 <% if @address.present? %>
-  <%= @address.furigana %>
+  <section>
+    <h2>検索結果</h2>
+    <section>
+      <h3>都道府県</h3>
+      <% if @address.prefecture.present? %>
+        <dl>
+          <dt>都道府県コード</dt>
+          <dd><%= @address.prefecture.code %></dd>
+          <dt>名前</dt>
+          <dd><%= @address.prefecture.name %></dd>
+          <dt>ふりがな</dt>
+          <dd><%= @address.prefecture.name_kana %></dd>
+          <dt>ローマ字表記</dt>
+          <dd><%= @address.prefecture.name_romaji %></dd>
+        </dl>
+      <% else %>
+        <p>見つかりませんでした。</p>
+      <% end %>
+    </section>
+    <section>
+      <h3>市区町村</h3>
+      <% if @address.city.present? %>
+        <dl>
+          <dt>市区町村コード</dt>
+          <dd><%= @address.city.code %></dd>
+          <dt>整形された市区町村コード</dt>
+          <dd><%= @address.city.formatted_code %></dd>
+          <dt>名前</dt>
+          <dd><%= @address.city.name %></dd>
+          <dt>ふりがな</dt>
+          <dd><%= @address.city.name_kana %></dd>
+          <dt>ローマ字表記</dt>
+          <dd><%= @address.city.name_romaji %></dd>
+          <dt>都道府県コード</dt>
+          <dd><%= @address.city.prefecture_code %></dd>
+        </dl>
+      <% else %>
+        <p>見つかりませんでした。</p>
+      <% end %>
+    </section>
+    <section>
+      <h3>町域</h3>
+      <% if @address.town.present? %>
+        <dl>
+          <dt>名前</dt>
+          <dd><%= @address.town.name %></dd>
+          <dt>ふりがな</dt>
+          <dd><%= @address.town.name_kana %></dd>
+          <dt>ローマ字表記</dt>
+          <dd><%= @address.town.name_romaji %></dd>
+          <dt>小字・通称名</dt>
+          <dd><%= @address.town.nickname %></dd>
+          <dt>緯度</dt>
+          <dd><%= @address.town.latitude %></dd>
+          <dt>経度</dt>
+          <dd><%= @address.town.longitude %></dd>
+        </dl>
+      <% else %>
+        <p>見つかりませんでした。</p>
+      <% end %>
+    </section>
+  </section>
 <% end %>
