@@ -1,7 +1,11 @@
-<%= form_with url: root_path, method: :get do |form| %>
-  <%= form.text_field :search, value: @search %>
-  <%= form.submit value: '検索', name: nil %>
-<% end %>
+<section>
+  <%= form_with url: root_path, method: :get do |form| %>
+    <div class='flex'>
+      <%= form.text_field :search, value: @search, class: 'grow py-2 border-2 border-orange-600 focus:ring-orange-500 focus:border-orange-500' %>
+      <%= form.submit value: '検索', name: nil, class: 'py-2 px-5 border-2 border-orange-600 hover:border-orange-500 bg-orange-600 text-white hover:bg-orange-500 hover:cursor-pointer focus-visible:outline-orange-500' %>
+    </div>
+  <% end %>
+</section>
 
 <% if @address.present? %>
   <section>

@@ -1,7 +1,7 @@
 class RootsController < ApplicationController
   def show
-    @search = search_params[:search] || ''
-    @address = JapaneseAddressParser.call(@search)
+    @search = search_params[:search]
+    @address = @search.present? && JapaneseAddressParser.call(@search)
   end
 
   private
