@@ -101,7 +101,7 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
-    japanese_address_parser (1.0.1)
+    japanese_address_parser (1.0.2)
       number_to_kanji
     loofah (2.13.0)
       crass (~> 1.0.2)
