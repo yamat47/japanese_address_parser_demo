@@ -5,7 +5,7 @@ ruby "3.1.0"
 
 gem "rails"
 gem "propshaft"
-gem "puma", "~> 5.0"
+gem "puma", "~> 5.6"
 gem "tailwindcss-rails"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "japanese_address_parser"
