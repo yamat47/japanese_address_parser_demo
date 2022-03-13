@@ -82,7 +82,7 @@ GEM
     io-wait (0.2.1)
     irb (1.4.1)
       reline (>= 0.3.0)
-    japanese_address_parser (2.1.0)
+    japanese_address_parser (2.2.0)
       schmooze
     loofah (2.14.0)
       crass (~> 1.0.2)
