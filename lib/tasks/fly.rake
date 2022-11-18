@@ -10,7 +10,12 @@ namespace :fly do
   #  - changes to the filesystem made here are DISCARDED
   #  - full access to secrets, databases
   #  - failures here prevent deployment
-  task :release => 'db:migrate'
+  #
+  # this application is not using a database, so we don't need to do anything.
+  # task :release => 'db:migrate'
+  task :release do
+    puts 'do nothing.'
+  end
 
   # SERVER step:
   #  - changes to the filesystem made here are deployed
