@@ -1,24 +1,7 @@
-# README
+# Japanese Address Parser Demo
+This is sample app for [yamat47/japanese_address_parser](https://github.com/yamat47/japanese_address_parser).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demonstration app is deployed at [HERE](https://japanese-address-parser-demo.fly.dev/).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Development
+Demonstration is build with Fly.io and automatically released when `main` branch is updated.
