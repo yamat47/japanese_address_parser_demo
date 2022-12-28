@@ -14,8 +14,8 @@ gem 'tailwindcss-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-  gem 'brakeman', require: false
 end
