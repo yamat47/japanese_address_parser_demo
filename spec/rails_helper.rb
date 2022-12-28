@@ -54,4 +54,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:each, type: :system) do |_example|
+    driven_by :selenium, using: :headless_chrome
+  end
 end
