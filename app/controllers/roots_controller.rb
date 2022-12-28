@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RootsController < ApplicationController
   def show
     @search = search_params[:search]

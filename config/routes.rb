@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "roots#show"
+  root 'roots#show'
 end
