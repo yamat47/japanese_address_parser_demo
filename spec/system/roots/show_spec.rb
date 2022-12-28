@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Roots#show page' do
   specify do
     visit '/'

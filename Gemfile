@@ -15,10 +15,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'brakeman', require: false
+  gem 'capybara'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-  gem 'rspec-rails'
-  gem 'capybara'
   gem 'selenium-webdriver'
 end
