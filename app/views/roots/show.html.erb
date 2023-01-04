@@ -33,7 +33,7 @@
 <% if @address.present? %>
   <section>
     <h2 class='mt-5 py-5 text-center text-2xl text-slate-900'>解析結果</h2>
-    <section>
+    <section id='prefecture'>
       <h3 class='py-2 pl-3 font-semibold'>都道府県</h3>
       <% if @address.prefecture.present? %>
         <dl>
@@ -58,7 +58,7 @@
         <p class='pl-3'>見つかりませんでした。</p>
       <% end %>
     </section>
-    <section>
+    <section id='city'>
       <h3 class='pt-10 pb-2 pl-3 font-semibold'>市区町村</h3>
       <% if @address.city.present? %>
         <dl>
@@ -91,7 +91,7 @@
         <p class='pl-3'>見つかりませんでした。</p>
       <% end %>
     </section>
-    <section>
+    <section id='town'>
       <h3 class='pt-10 pb-2 pl-3 font-semibold'>町域</h3>
       <% if @address.town.present? %>
         <dl>
