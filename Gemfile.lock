@@ -95,7 +95,7 @@ GEM
     io-console (0.6.0)
     irb (1.6.2)
       reline (>= 0.3.0)
-    japanese_address_parser (3.0.4)
+    japanese_address_parser (3.0.5)
       schmooze
     json (2.6.3)
     loofah (2.19.1)
