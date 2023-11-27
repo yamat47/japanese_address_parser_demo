@@ -110,7 +110,7 @@ GEM
     irb (1.9.0)
       rdoc
       reline (>= 0.3.8)
-    japanese_address_parser (3.1.2)
+    japanese_address_parser (3.2.0)
       schmooze
     json (2.6.3)
     language_server-protocol (3.17.0.3)
