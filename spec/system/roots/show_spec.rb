@@ -7,7 +7,7 @@ RSpec.describe 'Roots#show page' do
     expect(page).to have_css('h1', text: 'JapaneseAddressParser')
 
     fill_in 'search',	with: '東京都港区芝公園４丁目２−８'
-    click_button '解析'
+    click_on '解析'
 
     expect(page).to have_text '解析結果'
     expect(page.find_by_id('prefecture')).to have_text 'TOKYO TO'
@@ -21,7 +21,7 @@ RSpec.describe 'Roots#show page' do
     expect(page).to have_css('h1', text: 'JapaneseAddressParser')
 
     fill_in 'search',	with: '800 Occidental Ave. S. Seattle, WA 98134'
-    click_button '解析'
+    click_on '解析'
 
     expect(page).to have_text '解析結果'
     expect(page.find_by_id('prefecture')).to have_text '見つかりませんでした。'
