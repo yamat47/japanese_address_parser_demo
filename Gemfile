@@ -8,7 +8,7 @@ ruby '3.3.4'
 gem 'japanese_address_parser'
 gem 'pg'
 gem 'propshaft'
-gem 'puma', '~> 6.5'
+gem 'puma', '~> 6.6'
 gem 'rails'
 gem 'tailwindcss-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
