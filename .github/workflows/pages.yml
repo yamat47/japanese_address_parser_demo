@@ -1,0 +1,46 @@
+name: Pages
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: yamat47/github-toolkit/actions/checkout@main
+        with:
+          persist-credentials: false
+      # The installed gems are embedded into the published page, so they are
+      # installed fresh rather than restored from a cache.
+      - uses: yamat47/github-toolkit/actions/setup-ruby@main
+      - name: Install gems
+        run: bundle install
+      - name: Embed gem sources
+        run: bundle exec ruby build.rb
+      - uses: yamat47/github-toolkit/actions/upload-pages-artifact@main
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write # deploy-pages creates the Pages deployment
+      id-token: write # deploy-pages proves the deployment comes from this workflow
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: yamat47/github-toolkit/actions/deploy-pages@main
