@@ -1,26 +1,12 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.4'
-
+# The demo page runs this gem in the browser with ruby.wasm.
+# build.rb embeds the installed version into site/gems.json.
 gem 'japanese_address_parser'
-gem 'pg'
-gem 'propshaft'
-gem 'puma', '~> 6.5'
-gem 'rails'
-gem 'tailwindcss-rails'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-group :development, :test do
-  gem 'brakeman', require: false
-  gem 'capybara'
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails'
-  gem 'rubocop', require: false
-  gem 'rubocop-capybara'
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
-  gem 'selenium-webdriver'
+group :development do
+  # Serves site/ locally (`ruby -run -e httpd`).
+  gem 'webrick'
 end

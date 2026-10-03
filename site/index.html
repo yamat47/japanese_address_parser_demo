@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>デモンストレーション | JapaneseAddressParser</title>
+    <meta name="description" content="日本の住所を解析する Ruby gem「JapaneseAddressParser」を、ブラウザの中で試せるページです。">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:url" content="https://yamat47.github.io/japanese_address_parser_demo/">
+    <meta property="og:title" content="デモンストレーション | JapaneseAddressParser">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="日本の住所を解析する Ruby gem「JapaneseAddressParser」を、ブラウザの中で試せるページです。">
+    <meta property="og:image" content="https://yamat47.github.io/japanese_address_parser_demo/og-image.png">
+    <meta property="og:site_name" content="デモンストレーション | JapaneseAddressParser">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yamat47">
+    <meta name="twitter:creator" content="@yamat47">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header class="header">
+      <a class="brand" href="./">
+        <img src="logo.png" alt="" width="28" height="28">
+        <span>JapaneseAddressParser</span>
+      </a>
+      <a class="header-link" href="https://github.com/yamat47/japanese_address_parser" target="_blank" rel="noopener">GitHub</a>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <h1>日本の住所を解析する</h1>
+        <p>
+          <a href="https://github.com/yamat47/japanese_address_parser" target="_blank" rel="noopener">JapaneseAddressParser</a>
+          は日本の住所を解析する Ruby gem です。住所を入力すると、あなたのブラウザの中で gem がそのまま動きます。
+        </p>
+
+        <form id="form" class="search">
+          <input id="input" type="text" autocomplete="off" placeholder="住所を入力" aria-label="住所" disabled>
+          <button id="submit" type="submit" disabled>解析</button>
+        </form>
+
+        <ul id="samples" class="samples" aria-label="サンプルの住所"></ul>
+
+        <p id="status" class="status" role="status">Ruby を読み込んでいます…</p>
+      </section>
+
+      <section id="result" class="result" hidden>
+        <div class="breakdown">
+          <ol id="parts" class="parts"></ol>
+          <p class="level">
+            <span id="level-steps" class="level-steps" aria-hidden="true"></span>
+            <code id="level-code"></code>
+            <span id="level-text"></span>
+          </p>
+        </div>
+
+        <div class="detail">
+          <div id="attributes"></div>
+          <div class="map-wrapper">
+            <div id="map" class="map"></div>
+            <p id="map-empty" class="map-empty" hidden>位置を特定できませんでした。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        解析は
+        <a href="https://github.com/ruby/ruby.wasm" target="_blank" rel="noopener">ruby.wasm</a>
+        を使ってブラウザの中で行われ、入力した住所の文字列そのものがどこかに送られることはありません。
+        ただし、判別した都道府県・市区町村の住所データを
+        <a href="https://github.com/geolonia/japanese-addresses-v2" target="_blank" rel="noopener">Geolonia 住所データ</a>
+        から、結果の位置の周辺の地図を国土地理院から取得します。
+      </p>
+      <p id="versions" class="versions"></p>
+      <p>
+        <a href="https://github.com/yamat47/japanese_address_parser#readme" target="_blank" rel="noopener">gem の使い方</a>
+        ・
+        <a href="https://github.com/yamat47/japanese_address_parser_demo" target="_blank" rel="noopener">このページのソースコード</a>
+      </p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
