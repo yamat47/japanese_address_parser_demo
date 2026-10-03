@@ -1,0 +1,414 @@
+:root {
+  --text: #202124;
+  --text-secondary: #5f6368;
+  --border: #dadce0;
+  --surface: #f8f9fa;
+  --blue: #1a73e8;
+  --red: #ea4335;
+  --yellow: #f9ab00;
+  --green: #34a853;
+  --gray: #9aa0a6;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+/* 住所の各パーツの色。分解表示・level・属性一覧で共有する。 */
+.part-prefecture { --part: var(--blue); }
+.part-city { --part: var(--red); }
+.part-town { --part: var(--yellow); }
+.part-addr { --part: var(--green); }
+.part-other,
+.part-point { --part: var(--gray); }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.header-link {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 0 40px;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 6px 6px 6px 24px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.search:focus-within {
+  border-color: transparent;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+}
+
+.search button {
+  padding: 8px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.search button:hover:not(:disabled) {
+  background: #1765cc;
+}
+
+.search button:disabled {
+  background: var(--border);
+  cursor: default;
+}
+
+.samples {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sample {
+  padding: 4px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sample:hover:not(:disabled) {
+  background: var(--surface);
+}
+
+.sample:disabled {
+  color: var(--gray);
+  cursor: default;
+}
+
+.search button:focus-visible,
+.sample:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.hero .status {
+  min-height: 1.7em;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.hero .status.is-error {
+  color: var(--red);
+}
+
+.result {
+  padding-bottom: 64px;
+}
+
+.breakdown {
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.parts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.part {
+  display: flex;
+  flex-direction: column;
+}
+
+.part-text {
+  padding: 0 4px 6px;
+  border-bottom: 3px solid var(--part);
+  font-size: clamp(20px, 3.6vw, 30px);
+  line-height: 1.4;
+}
+
+.part-label {
+  margin-top: 6px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.level {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 10px;
+  margin: 28px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.level code {
+  color: var(--text);
+}
+
+.level-steps {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.level-step {
+  width: 20px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.level-step.is-on {
+  background: var(--part);
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.group + .group {
+  margin-top: 24px;
+}
+
+.group-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.group-label::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--part);
+  content: "";
+}
+
+.attribute-list {
+  margin: 0;
+}
+
+.attribute {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eceff1;
+  font-size: 14px;
+}
+
+.attribute dt {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.attribute dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.attribute dd.is-nil {
+  color: var(--gray);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.map-wrapper {
+  position: sticky;
+  top: 24px;
+}
+
+.map,
+.map-empty {
+  height: 440px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.map {
+  /* Leaflet の z-index をこの要素の中に閉じ込める。 */
+  isolation: isolate;
+}
+
+.map-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.map-empty[hidden] {
+  display: none;
+}
+
+.pin::before {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  background: var(--red);
+  box-shadow: 0 1px 4px rgb(32 33 36 / 40%);
+  transform: rotate(-45deg) scale(0.8);
+  transform-origin: 50% 100%;
+  content: "";
+}
+
+.footer {
+  padding: 32px 24px 48px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-align: center;
+}
+
+.footer p {
+  max-width: 680px;
+  margin: 0 auto 8px;
+}
+
+.versions {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 24px 0 32px;
+  }
+
+  .search {
+    padding-left: 18px;
+  }
+
+  .search button {
+    padding: 8px 18px;
+  }
+
+  .detail {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .map-wrapper {
+    position: static;
+    order: -1;
+  }
+
+  .map,
+  .map-empty {
+    height: 280px;
+  }
+}

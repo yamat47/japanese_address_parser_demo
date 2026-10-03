@@ -1,0 +1,18 @@
+# Local development runs in containers so nothing needs to be installed on the host.
+# Use the Makefile targets rather than calling these services directly.
+services:
+  app:
+    build: .
+    volumes:
+      - ./:/app
+    ports:
+      - "127.0.0.1:${PORT:-8000}:8000"
+    command: >-
+      sh -c "bundle exec ruby build.rb &&
+      bundle exec ruby -run -e httpd -- --bind-address=0.0.0.0 --port=8000 site"
+
+  actionlint:
+    image: rhysd/actionlint:1.7.12
+    volumes:
+      - ./:/repo:ro
+    working_dir: /repo
