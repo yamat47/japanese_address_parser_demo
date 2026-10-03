@@ -1,7 +1,7 @@
 # Japanese Address Parser Demo
 This is the demonstration page for [yamat47/japanese_address_parser](https://github.com/yamat47/japanese_address_parser).
 
-The page is published at [HERE](https://yamat47.github.io/japanese_address_parser_demo/).
+The page is published at [HERE](https://japanese-address-parser.yamat47.me/).
 
 ## How it works
 The page is a static site. It runs the gem itself in your browser with [ruby.wasm](https://github.com/ruby/ruby.wasm), so there is no application server.
