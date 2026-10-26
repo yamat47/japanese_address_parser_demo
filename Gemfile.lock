@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     csv (3.3.6)
-    japanese_address_parser (4.0.1)
+    japanese_address_parser (4.0.2)
       csv
       lru_redux
     lru_redux (1.1.0)
